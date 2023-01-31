@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trilha_app/styles/boda_linh_unica_caixa_de_texto.dart';
+import 'package:trilha_app/components/caixa_de_texto_login.dart';
+import 'package:trilha_app/pages/minha_pagina.dart';
 
 class HomePrincipal extends StatefulWidget {
   const HomePrincipal({Key? key}) : super(key: key);
@@ -53,14 +54,14 @@ class _HomePrincipalState extends State<HomePrincipal> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      BordaLinhaUnicaCixaDeTexto(
+                      CaixaDeTextoLogin(
                         label: "E-mail",
                         icone: Icons.email,
                         hintText: "Ex: bob@gmail.com",
                         isSenha: false,
                         controller: controllerEmail,
                       ),
-                      BordaLinhaUnicaCixaDeTexto(
+                      CaixaDeTextoLogin(
                         label: "Senha",
                         icone: Icons.lock,
                         isSenha: true,
@@ -73,6 +74,24 @@ class _HomePrincipalState extends State<HomePrincipal> {
                           onPressed: () {
                             debugPrint("E-mail: ${controllerEmail.text}");
                             debugPrint("Senha: ${controllerSenha.text}");
+                            if (controllerEmail.text == "anfacibry@gmail.com" &&
+                                controllerSenha.text == "1234") {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (cont) => const MinhaPagina(),
+                                ),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text("Login efetuado com sucesso"),
+                              ));
+                            } else {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text("E-mail ou senha incorreta"),
+                              ));
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.pink,
