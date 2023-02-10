@@ -5,6 +5,7 @@ class CaixaDeTextoLogin extends StatefulWidget {
   final String? hintText;
   final IconData icone;
   final bool isSenha;
+
   final TextEditingController controller;
   const CaixaDeTextoLogin({
     this.hintText,
@@ -20,7 +21,8 @@ class CaixaDeTextoLogin extends StatefulWidget {
 }
 
 class _CaixaDeTextoLoginState extends State<CaixaDeTextoLogin> {
-  bool mostrarSenha = false;
+  bool mostrarSenha = true;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -29,7 +31,7 @@ class _CaixaDeTextoLoginState extends State<CaixaDeTextoLogin> {
       ),
       controller: widget.controller,
       cursorColor: Colors.pink,
-      obscureText: mostrarSenha,
+      obscureText: widget.isSenha ? mostrarSenha : !mostrarSenha,
       decoration: InputDecoration(
         enabledBorder: bordaUnica(),
         focusedBorder: bordaUnica(),

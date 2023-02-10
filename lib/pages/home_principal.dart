@@ -72,9 +72,7 @@ class _HomePrincipalState extends State<HomePrincipal> {
                         width: largura * .8,
                         child: ElevatedButton(
                           onPressed: () {
-                            debugPrint("E-mail: ${controllerEmail.text}");
-                            debugPrint("Senha: ${controllerSenha.text}");
-                            if (controllerEmail.text == "anfacibry@gmail.com" &&
+                            if (controllerEmail.text == "aaaa" &&
                                 controllerSenha.text == "1234") {
                               Navigator.pushReplacement(
                                 context,
