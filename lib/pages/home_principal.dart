@@ -10,8 +10,10 @@ class HomePrincipal extends StatefulWidget {
 }
 
 class _HomePrincipalState extends State<HomePrincipal> {
-  final TextEditingController controllerEmail = TextEditingController();
-  final TextEditingController controllerSenha = TextEditingController();
+  final TextEditingController controllerEmail =
+      TextEditingController(text: "anfacibry@gmail.com");
+  final TextEditingController controllerSenha =
+      TextEditingController(text: "12345");
   @override
   Widget build(BuildContext context) {
     final double altura = MediaQuery.of(context).size.height;
@@ -72,8 +74,8 @@ class _HomePrincipalState extends State<HomePrincipal> {
                         width: largura * .8,
                         child: ElevatedButton(
                           onPressed: () {
-                            if (controllerEmail.text == "aaaa" &&
-                                controllerSenha.text == "1234") {
+                            if (controllerEmail.text == "anfacibry@gmail.com" &&
+                                controllerSenha.text == "12345") {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
