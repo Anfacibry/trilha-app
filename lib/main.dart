@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:trilha_app/services/inicializacao_hive.dart';
 
 import 'pages/home_principal.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  ///Inicializa o hive
+  WidgetsFlutterBinding.ensureInitialized();
+
+  ///Pega o caminho do diretório
+  InicializandoHive.diretorio();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
